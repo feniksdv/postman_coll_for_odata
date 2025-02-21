@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"os"
 	"regexp"
 	"strings"
 )
@@ -20,7 +21,7 @@ var cacheLoaded bool
 func RunParser(entityName string) []Param {
 
 	// URL страницы
-	url := "https://ral-118.rosagroleasing.ru/$odata"
+	url := os.Getenv("URL_ODATA")
 
 	// Получаем содержимое страницы
 	htmlContent, err := fetchPage(url)
