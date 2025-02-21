@@ -7,7 +7,6 @@ import (
 	"io/ioutil"
 	"net/http"
 	parseFile "odata/internal/app/services"
-	"os"
 	"strings"
 )
 
@@ -125,7 +124,7 @@ func generateRequestBody(properties []Property) string {
 
 func Process() {
 	// URL страницы
-	metadataURL := os.Getenv("URL_META_DATA")
+	metadataURL := "https://ral-118.rosagroleasing.ru/pg/odata/$metadata"
 
 	resp, err := http.Get(metadataURL)
 	if err != nil {

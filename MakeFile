@@ -1,3 +1,16 @@
 .PHONY: run
 run:
 	go run cmd/main.go
+
+.PHONY: windows
+run:
+	GOOS=windows GOARCH=amd64 go build -o sherp_odata_postman_collection.exe ./cmd
+
+
+.PHONY: macos
+run:
+	go build -o sherp_odata_postman_collection_macos ./cmd
+
+.PHONY: linux
+run:
+	GOOS=linux GOARCH=amd64 go build -o sherp_odata_postman_collection_linux ./cmd
